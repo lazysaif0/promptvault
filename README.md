@@ -1,77 +1,74 @@
-🎮 PromptVault
-Your cozy little library of AI prompts.
+PromptVault
+A curated library of reusable AI prompts.
 
-PromptVault is a pixel-art inspired library of reusable AI prompts designed to make working with AI easier, faster, and more creative.
+PromptVault is a pixel-art inspired platform for discovering, customizing, and organizing reusable AI prompts. Built to make AI workflows more accessible and efficient, it provides a central place to explore prompts for ChatGPT, Claude, Gemini, and other AI assistants.
 
-Discover useful prompts, customize them to fit your needs, and build your own collection of favorites — all inside a cozy retro-inspired interface.
+Visit PromptVault
 
-✨ Explore PromptVault
+Features
+Curated Prompt Library — Explore 36 hand-written prompts organized across 12 categories.
+Smart Search — Find prompts by title, description, tags, or content.
+Category & Difficulty Filters — Discover prompts based on their purpose and complexity.
+Flexible Sorting — Organize prompts by newest, popularity, or alphabetical order.
+Customizable Templates — Replace bracketed placeholders with your own information before using a prompt.
+One-Click Copy — Copy customized prompts directly to your clipboard.
+Favorites — Save and access frequently used prompts through browser storage.
+Theme Switching — Choose between a pastel light theme and a dark theme.
+Community Contributions — Create and share custom prompts with the community.
+Prompt Library
 
-✨ Features
-📚 Curated Prompt Library — Explore 36 hand-written prompts across 12 different categories.
-🔎 Smart Search — Find prompts by title, description, tags, or content.
-🏷️ Categories & Difficulty — Browse prompts by category and difficulty level.
-✏️ Interactive Templates — Customize prompts using editable fill-in-the-blank fields.
-📋 One-Click Copy — Copy personalized prompts instantly.
-❤️ Favorites — Save your favorite prompts directly in your browser.
-🌙 Dark & Light Themes — Switch between pastel colors and a cozy night-purple theme.
-🎨 Pixel-Art Design — Enjoy a nostalgic interface inspired by retro games and pixel aesthetics.
-🤝 Community Contributions — Create and share your own prompts.
-🧩 Explore the Library
+PromptVault brings together prompts for a variety of tasks and workflows, organized into 12 categories.
 
-PromptVault organizes prompts into 12 categories, making it easier to discover the right prompt for different tasks and creative workflows.
+Whether you're writing, researching, brainstorming, learning, or developing ideas, the library provides reusable starting points that can be adapted to your needs.
 
-Whether you're brainstorming ideas, writing content, learning something new, or working on a project, there's a prompt to help you get started.
+Design
 
-💛 Designed for a Cozy Experience
+PromptVault combines practical functionality with a distinctive pixel-art visual identity.
 
-PromptVault isn't just another prompt collection.
+The interface features:
 
-Its interface combines functionality with a playful pixel-art aesthetic:
+Retro-inspired pixel typography.
+Chunky borders and offset shadows.
+Window-inspired prompt cards.
+A pastel color palette with a complementary dark theme.
+Responsive layouts for desktop and mobile devices.
 
-Retro-inspired typography.
-Chunky pixel borders and offset shadows.
-Pastel colors and cozy dark mode.
-Pixel hearts, stars, clouds, and decorative details.
-Clean, interactive prompt cards.
+The design takes inspiration from classic pixel-art games while maintaining a clean and accessible browsing experience.
 
-Every detail is designed to make exploring and using prompts feel enjoyable.
+Technology Stack
+Technology	Purpose
+Python	Application logic and static site generation
+Flask	Application structure and development
+HTML	Page structure
+CSS	Styling, themes, and responsive layouts
+JavaScript	Interactive functionality
+JSON	Prompt data and organization
+GitHub Actions	Automated builds and deployment
+GitHub Pages	Static website hosting
+Contributing
 
-🛠️ Built With
-Python & Flask — Application structure and development.
-HTML & CSS — Layout and visual design.
-JavaScript — Interactive features and browser functionality.
-JSON — Prompt library and data storage.
-GitHub Pages & GitHub Actions — Static website hosting and deployment.
-🤝 Contributing
+Contributions and suggestions are welcome.
 
-Have a useful prompt to share or an idea to improve PromptVault?
+You can help improve PromptVault by:
 
-Contributions are welcome!
+Submitting new prompts.
+Suggesting additional categories.
+Reporting bugs and issues.
+Proposing new features.
+Improving the user interface and accessibility.
 
-You can contribute by:
+See CONTRIBUTING.md for contribution guidelines.
 
-Adding new AI prompts.
-Suggesting categories.
-Reporting bugs.
-Sharing feature ideas.
-Improving the interface and user experience.
+License
 
-Check out CONTRIBUTING.md to get involved.
-
-📜 License
-
-PromptVault is open source and available under the MIT License.
+PromptVault is released under the MIT License.
 
 <p align="center">
+<strong>PromptVault</strong>
 <br>
-<strong>🎮 PromptVault</strong>
-<br>
-Your prompts. Your creativity. Your little pixel library.
+A better way to discover, organize, and use AI prompts.
 <br><br>
-<a href="https://lazysaif0.github.io/promptvault/">Explore the Website</a>
-·
-<a href="https://github.com/lazysaif0/promptvault">View Source Code</a>
-<br><br>
-Made with 💜 and a little pixel magic.
+<a href="https://lazysaif0.github.io/promptvault/">Website</a>
+&nbsp;·&nbsp;
+<a href="https://github.com/lazysaif0/promptvault">Repository</a>
 </p>
