@@ -1,0 +1,64 @@
+name: Deploy to GitHub Pages
+
+# GitHub Pages cannot run Python or Flask. This workflow runs Flask ONCE inside
+# GitHub's build machine, exports every page to plain HTML (tools/build_static.py),
+# and publishes that folder. Visitors only ever receive static files.
+#
+# One-time setup in your repository:
+#   Settings > Pages > Build and deployment > Source = "GitHub Actions"
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Check prompts and run tests
+        run: |
+          python tools/validate_prompts.py
+          python -m unittest discover tests
+
+      # Tells us the final address, e.g. https://you.github.io/promptvault
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build the static site
+        run: |
+          python tools/build_static.py \
+            --base "${{ steps.pages.outputs.base_path }}" \
+            --repo "${{ github.repository }}" \
+            --site-url "${{ steps.pages.outputs.base_url }}"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

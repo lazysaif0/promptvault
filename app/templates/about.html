@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <h1>About PromptVault</h1>
+    <p class="lead">A shared shelf of prompts that already work, so nobody starts from a blank box.</p>
+  </div>
+</section>
+
+<section class="container prose-wrap">
+  <div class="prose">
+    <h2>Why it exists</h2>
+    <p>Good prompts take trial and error. People rewrite the same instructions again and again, and the best ones end up lost in chat histories. PromptVault collects them in one place so they can be found, adapted and improved by everyone.</p>
+
+    <h2>What makes a prompt here</h2>
+    <p>Each prompt has a clear purpose, a stated difficulty, instructions for using it and an example. The parts you are meant to change sit in <code>[square brackets]</code>. On the site those turn into fields, so you can fill them in and copy a finished prompt.</p>
+    <p>Prompts are written to work with any capable assistant, including ChatGPT, Claude and Gemini. Results still vary by model, so treat them as strong starting points and adjust.</p>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>The library is a single JSON file in the repository, so changes are easy to review.</li>
+      <li>The site is built with Flask, then exported to plain HTML so it can be hosted for free on GitHub Pages. No server, no accounts, no tracking.</li>
+      <li>Favorites and your theme are saved in your own browser.</li>
+      <li>The code and the prompts are open source under the MIT license.</li>
+    </ul>
+
+    <h2>Get involved</h2>
+    <p>Use a prompt, improve one, or add your own. <a href="{{ url_for('main.contribute') }}">Submit a prompt</a> or read the <a href="{{ url_for('main.github_page') }}">GitHub contribution guide</a>. Bugs and ideas go in the <a href="{{ github_url }}/issues" rel="noopener">issue tracker</a>.</p>
+  </div>
+</section>
+{% endblock %}

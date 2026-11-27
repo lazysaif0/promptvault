@@ -1,0 +1,46 @@
+{#
+  Reusable prompt card, styled as a little retro window.
+    {% from 'partials/card.html' import card %}
+    {{ card(p) }}                 -> visible card
+    {{ card(p, hidden=True) }}    -> hidden card (the JavaScript may reveal it)
+
+  The data-* attributes let app.js search, sort, copy and favorite without
+  any server, which is what makes the static GitHub Pages version work.
+#}
+{% macro level(difficulty) -%}
+  {%- set n = {'Beginner': 1, 'Intermediate': 2, 'Advanced': 3}[difficulty] -%}
+  <span class="diff" data-level="{{ n }}"><span class="pips" aria-hidden="true">{% for i in range(3) %}<svg class="pip" viewBox="0 0 9 9"><use href="#px-star-fill"/></svg>{% endfor %}</span>{{ difficulty }}</span>
+{%- endmacro %}
+
+{% macro heart_btn(slug, title) -%}
+<button class="fav-btn" type="button" data-fav="{{ slug }}" aria-pressed="false" aria-label="Save {{ title }} to favorites">
+  <svg class="ico heart" viewBox="0 0 11 10" aria-hidden="true"><use href="#px-heart-fill" class="hf"/><use href="#px-heart-line" class="hl"/></svg>
+</button>
+{%- endmacro %}
+
+{% macro card(p, hidden=False) -%}
+<article class="card win" {% if hidden %}hidden{% endif %}
+         style="--cat: {{ p.category_info.color }}"
+         data-slug="{{ p.slug }}" data-title="{{ p.title }}" data-desc="{{ p.description }}"
+         data-tags="{{ p.tags | join(' ') }}" data-cat="{{ p.category }}"
+         data-diff="{{ p.difficulty }}" data-pop="{{ p.popularity }}" data-date="{{ p.date_added }}"
+         data-prompt="{{ p.prompt }}">
+  <div class="win-bar">
+    <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <a class="cat-name" href="{{ url_for('main.category', slug=p.category) }}">{{ p.category_info.name }}</a>
+    {{ heart_btn(p.slug, p.title) }}
+  </div>
+  <div class="win-body">
+    <h3 class="card-title"><a href="{{ url_for('main.prompt_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
+    <p class="card-desc">{{ p.description }}</p>
+    <ul class="tags">{% for t in p.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    <div class="card-foot">
+      {{ level(p.difficulty) }}
+      <div class="card-actions">
+        <button class="btn btn-small" type="button" data-copy-card>Copy</button>
+        <a class="btn btn-small btn-ghost" href="{{ url_for('main.prompt_detail', slug=p.slug) }}">View details</a>
+      </div>
+    </div>
+  </div>
+</article>
+{%- endmacro %}

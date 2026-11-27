@@ -1,0 +1,941 @@
+{
+  "categories": [
+    {
+      "slug": "education-learning",
+      "name": "Education & Learning",
+      "description": "Study smarter, explain hard ideas and build lasting knowledge.",
+      "icon": "📚",
+      "color": "#6C8CFF"
+    },
+    {
+      "slug": "programming-development",
+      "name": "Programming & Development",
+      "description": "Debug, review, design and document software.",
+      "icon": "💻",
+      "color": "#2DD4BF"
+    },
+    {
+      "slug": "career-professional-growth",
+      "name": "Career & Professional Growth",
+      "description": "Resumes, interviews, negotiation and career planning.",
+      "icon": "🚀",
+      "color": "#F59E0B"
+    },
+    {
+      "slug": "writing-communication",
+      "name": "Writing & Communication",
+      "description": "Sharper emails, clearer writing and better conversations.",
+      "icon": "✍️",
+      "color": "#F472B6"
+    },
+    {
+      "slug": "productivity-organization",
+      "name": "Productivity & Organization",
+      "description": "Plan your time, tame your tasks, run better meetings.",
+      "icon": "🗂️",
+      "color": "#34D399"
+    },
+    {
+      "slug": "creativity-brainstorming",
+      "name": "Creativity & Brainstorming",
+      "description": "Generate ideas, break blocks and build stories.",
+      "icon": "💡",
+      "color": "#FBBF24"
+    },
+    {
+      "slug": "research-analysis",
+      "name": "Research & Analysis",
+      "description": "Summarize, compare, critique and make sense of information.",
+      "icon": "🔍",
+      "color": "#60A5FA"
+    },
+    {
+      "slug": "business-entrepreneurship",
+      "name": "Business & Entrepreneurship",
+      "description": "Validate ideas, plan products and understand customers.",
+      "icon": "📈",
+      "color": "#FB7185"
+    },
+    {
+      "slug": "science-technology",
+      "name": "Science & Technology",
+      "description": "Understand complex science and emerging technology.",
+      "icon": "🔬",
+      "color": "#A78BFA"
+    },
+    {
+      "slug": "personal-development",
+      "name": "Personal Development",
+      "description": "Build habits, reflect and make better decisions.",
+      "icon": "🌱",
+      "color": "#4ADE80"
+    },
+    {
+      "slug": "design-marketing",
+      "name": "Design & Marketing",
+      "description": "Positioning, copy, campaigns and design critique.",
+      "icon": "🎨",
+      "color": "#F97316"
+    },
+    {
+      "slug": "general-purpose",
+      "name": "General Purpose",
+      "description": "Versatile prompts that improve any AI conversation.",
+      "icon": "✨",
+      "color": "#94A3B8"
+    }
+  ],
+  "prompts": [
+    {
+      "slug": "feynman-technique-tutor",
+      "title": "Feynman Technique Tutor",
+      "description": "Learn any concept by explaining it simply, then have the AI find the gaps in your understanding.",
+      "category": "education-learning",
+      "tags": [
+        "learning",
+        "study",
+        "explanation"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "You are a patient tutor who uses the Feynman Technique.\n\nTopic I want to learn: [TOPIC]\nMy current level: [BEGINNER / INTERMEDIATE / ADVANCED]\n\nFollow these steps:\n1. Explain the topic in plain language a 12-year-old could follow, using one concrete analogy.\n2. Ask me to explain it back in my own words. Wait for my reply before continuing.\n3. When I reply, point out exactly what I got right, what I got wrong, and which parts were vague.\n4. Re-teach only the weak parts with a new analogy.\n5. Finish with three questions that test real understanding, not memorization.",
+      "instructions": [
+        "Replace the bracketed fields.",
+        "Answer the AI's request to explain it back, honestly and in your own words.",
+        "Repeat steps 3-4 until your explanation has no gaps."
+      ],
+      "example_input": "Topic: Compound interest. Level: Beginner.",
+      "example_output": "Think of compound interest like a snowball rolling downhill: it earns interest, and then that interest earns interest too... Now, in your own words, how would you explain why a snowball grows faster the longer it rolls?",
+      "popularity": 96,
+      "date_added": "2026-02-03",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "feynman-technique-tutor"
+    },
+    {
+      "slug": "personalized-study-plan",
+      "title": "Personalized Study Plan Builder",
+      "description": "Turn an exam date and your available hours into a realistic week-by-week study schedule.",
+      "category": "education-learning",
+      "tags": [
+        "study plan",
+        "exams",
+        "scheduling"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Act as an academic coach. Build me a study plan.\n\nSubject / exam: [SUBJECT]\nExam date: [DATE]  (today is [TODAY'S DATE])\nHours I can study per weekday: [HOURS]   Weekend: [HOURS]\nTopics to cover: [LIST TOPICS]\nMy weak topics: [LIST]\nLearning style: [e.g. practice problems, flashcards, reading]\n\nProduce:\n- A week-by-week table (Week | Focus topics | Activities | Hours).\n- Spaced-repetition reviews of earlier topics built in.\n- One full mock exam two weeks before the exam date and one final-week light review.\n- A buffer day each week for catching up.\nFinish with 3 warning signs that I am falling behind and what to do about each.",
+      "instructions": [
+        "Be realistic about hours; the plan is only as good as your input.",
+        "Ask the AI to re-plan if you miss a week by pasting what you actually completed."
+      ],
+      "example_input": "Biology final in 6 weeks, 2 hours weekdays, 4 hours weekends. Weak: genetics, cell respiration.",
+      "example_output": "Week 1 | Cell structure, genetics basics (weak topic) | Read ch.1-3, 20 flashcards, 10 practice problems | 14h ...",
+      "popularity": 88,
+      "date_added": "2026-02-10",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "personalized-study-plan"
+    },
+    {
+      "slug": "socratic-question-coach",
+      "title": "Socratic Question Coach",
+      "description": "Get guided toward the answer with questions instead of being handed it, ideal for homework you want to truly understand.",
+      "category": "education-learning",
+      "tags": [
+        "homework",
+        "critical thinking",
+        "tutoring"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Be my Socratic tutor. I will give you a problem or question. Do NOT give me the answer.\n\nRules:\n- Ask one guiding question at a time.\n- If I am stuck after two attempts, give a small hint, not the solution.\n- Praise correct reasoning specifically.\n- When I reach the answer, ask me to summarize the method so I can reuse it.\n\nMy problem: [PASTE PROBLEM]\nWhat I have tried so far: [DESCRIBE OR WRITE 'nothing yet']",
+      "instructions": [
+        "Paste the problem exactly as written.",
+        "Answer each question; say 'hint' if stuck.",
+        "Type 'show solution' only as a last resort."
+      ],
+      "example_input": "Problem: Solve 2x + 6 = 14. Tried: nothing yet.",
+      "example_output": "What operation could you do to both sides to get the term with x by itself?",
+      "popularity": 74,
+      "date_added": "2026-03-01",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "socratic-question-coach"
+    },
+    {
+      "slug": "senior-code-reviewer",
+      "title": "Senior Code Reviewer",
+      "description": "A structured code review covering bugs, security, performance, readability and tests, ranked by severity.",
+      "category": "programming-development",
+      "tags": [
+        "code review",
+        "quality",
+        "security"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "You are a senior software engineer doing a thorough code review.\n\nLanguage / framework: [LANGUAGE + FRAMEWORK]\nWhat this code is supposed to do: [PURPOSE]\n\nReview the code below and report in this exact structure:\n1. **Critical** - bugs, security holes, data loss risks (with line references).\n2. **Important** - performance problems, poor error handling, missing edge cases.\n3. **Minor** - naming, style, readability.\n4. **Tests** - what tests are missing; write 3 concrete test cases.\n5. **Refactored version** - rewrite the most problematic function.\nExplain WHY each issue matters in one sentence. Do not praise filler; if the code is good, say so briefly.\n\n```\n[PASTE CODE]\n```",
+      "instructions": [
+        "Include the language and the purpose; context drastically improves the review.",
+        "Paste one file or function at a time for best results."
+      ],
+      "example_input": "Python function that builds an SQL query by concatenating user input.",
+      "example_output": "**Critical**: line 4 builds SQL with string concatenation, which allows SQL injection. Use parameterized queries: cursor.execute('SELECT ... WHERE id = ?', (user_id,)) ...",
+      "popularity": 99,
+      "date_added": "2026-01-20",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "senior-code-reviewer"
+    },
+    {
+      "slug": "bug-hunter-debugger",
+      "title": "Systematic Bug Hunter",
+      "description": "Describe a bug and get a ranked list of hypotheses plus the exact experiments to confirm each one.",
+      "category": "programming-development",
+      "tags": [
+        "debugging",
+        "troubleshooting",
+        "errors"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Help me debug systematically. Do not jump to a fix.\n\nEnvironment: [OS, language version, libraries]\nExpected behavior: [WHAT SHOULD HAPPEN]\nActual behavior: [WHAT HAPPENS, include the full error message]\nWhat changed recently: [CHANGES]\nRelevant code:\n```\n[CODE]\n```\n\nPlease:\n1. Restate the problem in one sentence to confirm you understood.\n2. List the 3-5 most likely causes, ranked by probability, with reasoning.\n3. For each, give a quick experiment (a print statement, a command, a minimal test) that would confirm or rule it out.\n4. Ask me for any missing information BEFORE proposing a fix.\n5. Once the cause is confirmed, suggest the smallest safe fix and how to prevent it recurring.",
+      "instructions": [
+        "Always paste the complete error message.",
+        "Run the experiments and report results back; iterate."
+      ],
+      "example_input": "Flask app returns 404 for /static/style.css only in production.",
+      "example_output": "Likely causes: 1) static folder path differs under the production server (70%) ... Experiment: print(app.static_folder) and compare with the deployed directory.",
+      "popularity": 91,
+      "date_added": "2026-01-28",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "bug-hunter-debugger"
+    },
+    {
+      "slug": "readme-generator",
+      "title": "README & Documentation Writer",
+      "description": "Generate a clear, professional README from a short description of your project.",
+      "category": "programming-development",
+      "tags": [
+        "documentation",
+        "open source",
+        "github"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Write a professional README.md for my project.\n\nProject name: [NAME]\nWhat it does (1-2 sentences): [DESCRIPTION]\nTech stack: [STACK]\nTarget users: [WHO]\nKey features: [LIST]\nHow to install and run it: [STEPS OR 'infer sensible steps']\n\nInclude: a one-line tagline, feature list, screenshots placeholder, installation, usage with examples, project structure, contributing section, license note. Use clear headings, short sentences, and copy-pasteable code blocks. Do not invent features I did not list.",
+      "instructions": [
+        "Fill in everything you know; leave 'infer' where unsure and verify the result.",
+        "Run the install steps yourself before publishing."
+      ],
+      "example_input": "Name: TaskTrail. A CLI to-do list written in Python.",
+      "example_output": "# TaskTrail\n> A fast command-line to-do list.\n\n## Installation\n```bash\npip install tasktrail\n```...",
+      "popularity": 80,
+      "date_added": "2026-02-14",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "readme-generator"
+    },
+    {
+      "slug": "resume-bullet-booster",
+      "title": "Resume Bullet Booster",
+      "description": "Rewrite vague resume bullets into measurable, achievement-focused statements.",
+      "category": "career-professional-growth",
+      "tags": [
+        "resume",
+        "job search",
+        "achievements"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "You are an expert resume writer. Rewrite my resume bullets so each follows: Strong action verb + what I did + measurable result.\n\nTarget job: [JOB TITLE / PASTE JOB POSTING]\nMy bullets:\n[PASTE BULLETS]\n\nRules:\n- Never invent numbers. Where a metric is missing, give me a bracketed question such as [How many users? How much time saved?].\n- Keep each bullet under 25 words.\n- Mirror relevant keywords from the job posting naturally.\n- Give two versions of each: concise and detailed.",
+      "instructions": [
+        "Answer the bracketed questions with real numbers, then ask for a final polish."
+      ],
+      "example_input": "Bullet: 'Helped with customer support.' Target: Customer Success Associate.",
+      "example_output": "Concise: Resolved [X] customer tickets weekly with a [Y]% satisfaction rating. Detailed: Resolved [X] tickets per week... [How many tickets? What satisfaction score?]",
+      "popularity": 93,
+      "date_added": "2026-02-01",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "resume-bullet-booster"
+    },
+    {
+      "slug": "interview-simulator",
+      "title": "Mock Interview Simulator",
+      "description": "Practice a realistic interview with follow-up questions and honest, specific feedback after each answer.",
+      "category": "career-professional-growth",
+      "tags": [
+        "interview",
+        "practice",
+        "feedback"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Act as a hiring manager interviewing me for: [ROLE] at [COMPANY TYPE].\n\nRun the interview like this:\n- Ask ONE question at a time and wait for my answer.\n- Mix behavioral (STAR format), situational and role-specific technical questions.\n- After each answer, give feedback: what worked, what was missing, and a stronger sample answer in 3 sentences.\n- Ask a realistic follow-up when my answer is vague.\n- After 8 questions, give a scorecard (Communication, Structure, Evidence, Confidence) out of 5 with the top 3 things to improve.\n\nStart with a brief greeting and your first question.",
+      "instructions": [
+        "Answer as you would in a real interview.",
+        "Say 'next' to skip, or 'redo' to retry an answer."
+      ],
+      "example_input": "Role: Junior Data Analyst at a retail startup.",
+      "example_output": "Hi, thanks for joining. To start: tell me about a time you found an insight in messy data that changed a decision.",
+      "popularity": 90,
+      "date_added": "2026-02-18",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "interview-simulator"
+    },
+    {
+      "slug": "salary-negotiation-script",
+      "title": "Salary Negotiation Coach",
+      "description": "Prepare a confident, respectful negotiation strategy with word-for-word scripts.",
+      "category": "career-professional-growth",
+      "tags": [
+        "negotiation",
+        "salary",
+        "career"
+      ],
+      "difficulty": "Advanced",
+      "prompt": "You are a compensation negotiation coach. Help me prepare.\n\nRole and level: [ROLE]\nLocation: [CITY/COUNTRY]\nOffer: [BASE, BONUS, EQUITY, BENEFITS]\nMy leverage: [OTHER OFFERS, SKILLS, EXPERIENCE]\nMarket range I found: [RANGE OR 'unknown']\nMy priorities: [e.g. salary, remote work, title, learning budget]\n\nGive me:\n1. A realistic target and walk-away number with reasoning.\n2. A word-for-word script for the first conversation (email and phone versions).\n3. Responses to 5 likely pushbacks (\"This is our best offer\", \"Budget is fixed\").\n4. Non-salary items I can ask for if base pay is capped.\n5. Mistakes to avoid. Keep the tone collaborative, never adversarial.",
+      "instructions": [
+        "Research real market data first (levels.fyi, Glassdoor, local surveys).",
+        "Practise the scripts out loud."
+      ],
+      "example_input": "Offer: 60k base, no bonus, software engineer, 2 years experience.",
+      "example_output": "Target: 66-70k. Script: 'Thank you, I'm excited about the role. Based on my research for this level, I was expecting 68k. Is there flexibility?' ...",
+      "popularity": 78,
+      "date_added": "2026-03-05",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "salary-negotiation-script"
+    },
+    {
+      "slug": "email-tone-rewriter",
+      "title": "Email Tone Rewriter",
+      "description": "Rewrite any email in the exact tone you need while keeping every important detail.",
+      "category": "writing-communication",
+      "tags": [
+        "email",
+        "tone",
+        "rewriting"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Rewrite the email below.\n\nDesired tone: [e.g. warm and professional / firm but polite / concise and direct]\nRecipient: [WHO, and relationship]\nGoal of the email: [WHAT I WANT THEM TO DO]\n\nRules: keep all facts and dates unchanged; remove filler; put the main request in the first two sentences; end with one clear next step. Give me 2 versions (short and standard) and a subject line for each.\n\nEmail:\n[PASTE EMAIL]",
+      "instructions": [
+        "Paste the original email and fill in the tone and goal.",
+        "Ask for a third variation if neither fits."
+      ],
+      "example_input": "Tone: firm but polite. Email: 'You still haven't paid invoice 204, this is ridiculous.'",
+      "example_output": "Subject: Reminder: Invoice 204 overdue\nHi Sam, I'm following up on invoice 204, which was due on the 5th. Could you confirm payment by Friday? ...",
+      "popularity": 97,
+      "date_added": "2026-01-15",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "email-tone-rewriter"
+    },
+    {
+      "slug": "editor-line-by-line",
+      "title": "Ruthless-but-Kind Editor",
+      "description": "Get an honest editing pass that improves clarity, structure and flow without changing your voice.",
+      "category": "writing-communication",
+      "tags": [
+        "editing",
+        "clarity",
+        "writing"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Act as a professional editor. Improve my text without changing my voice.\n\nAudience: [WHO WILL READ THIS]\nPurpose: [INFORM / PERSUADE / ENTERTAIN]\nWord limit (if any): [LIMIT]\n\nDeliver:\n1. A 3-sentence diagnosis of the biggest problems.\n2. The edited text, with every change shown in **bold**.\n3. A list of recurring habits to fix (e.g. passive voice, hedging).\n4. One suggestion to make the opening stronger.\n\nText:\n[PASTE TEXT]",
+      "instructions": [
+        "Keep your original saved; compare it against the edit.",
+        "Ask 'why did you change X?' to learn the pattern."
+      ],
+      "example_input": "A rambling product announcement paragraph.",
+      "example_output": "Diagnosis: The announcement buries the news in sentence four. ... Edited: **We're launching Dark Mode today.** ...",
+      "popularity": 82,
+      "date_added": "2026-02-22",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "editor-line-by-line"
+    },
+    {
+      "slug": "difficult-conversation-planner",
+      "title": "Difficult Conversation Planner",
+      "description": "Plan what to say, anticipate reactions and rehearse a hard conversation with empathy.",
+      "category": "writing-communication",
+      "tags": [
+        "communication",
+        "conflict",
+        "workplace"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Help me prepare for a difficult conversation.\n\nWho I'm talking to and our relationship: [PERSON]\nThe issue: [WHAT HAPPENED]\nMy desired outcome: [OUTCOME]\nWhat I think they may feel or say: [GUESS]\n\nPlease provide:\n1. An opening line that is direct, calm and non-accusatory.\n2. 3 key points phrased with \"I\" statements, with facts rather than judgments.\n3. Likely reactions and a response for each.\n4. Phrases to de-escalate if emotions rise.\n5. A role-play: you play them, I reply, and you coach me after each exchange.",
+      "instructions": [
+        "Start with the plan, then ask the AI to begin the role-play.",
+        "Adapt the scripts to words you would really use."
+      ],
+      "example_input": "Telling a teammate their missed deadlines are affecting the group.",
+      "example_output": "Opening: 'I'd like to talk about the last two deadlines because I want us to find a way to make the project work for everyone.' ...",
+      "popularity": 69,
+      "date_added": "2026-03-10",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "difficult-conversation-planner"
+    },
+    {
+      "slug": "weekly-planning-session",
+      "title": "Weekly Planning Session",
+      "description": "A guided weekly review that turns a messy brain-dump into a prioritized plan.",
+      "category": "productivity-organization",
+      "tags": [
+        "planning",
+        "priorities",
+        "weekly review"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Be my planning partner for the coming week.\n\nMy brain-dump (everything on my mind): [LIST]\nFixed commitments: [MEETINGS, CLASSES, APPOINTMENTS WITH TIMES]\nMy top goal this month: [GOAL]\nEnergy pattern: [e.g. sharpest in mornings]\n\nThen:\n1. Sort my list into Must do / Should do / Could do / Drop.\n2. Choose at most 3 \"big wins\" for the week.\n3. Schedule them into time blocks around my commitments, matching hard tasks to high-energy hours.\n4. Flag anything that is unrealistic and propose what to postpone.\n5. Give me a 5-minute end-of-week review checklist.",
+      "instructions": [
+        "Do this every Sunday or Monday morning.",
+        "Paste last week's review to improve the next plan."
+      ],
+      "example_input": "Brain dump: finish report, gym 3x, call dentist, learn SQL, clean apartment...",
+      "example_output": "Big wins: 1) Finish report (Tue AM block) 2) SQL lesson x3 3) Gym x3. Drop: reorganizing bookshelf...",
+      "popularity": 92,
+      "date_added": "2026-01-22",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "weekly-planning-session"
+    },
+    {
+      "slug": "meeting-notes-to-actions",
+      "title": "Meeting Notes to Action Items",
+      "description": "Convert raw meeting notes or a transcript into decisions, owners and deadlines.",
+      "category": "productivity-organization",
+      "tags": [
+        "meetings",
+        "summaries",
+        "action items"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Turn these raw meeting notes into a clean summary.\n\nMeeting purpose: [PURPOSE]\nAttendees: [NAMES]\n\nOutput exactly:\n- **Summary** (max 4 sentences)\n- **Decisions made** (bullets)\n- **Action items** as a table: Task | Owner | Deadline | Priority\n- **Open questions** that were not resolved\n- **Draft follow-up email** (under 120 words)\n\nIf an owner or deadline is unclear, write \"TBD\" instead of guessing.\n\nNotes:\n[PASTE NOTES]",
+      "instructions": [
+        "Paste notes as messy as they are.",
+        "Send the follow-up email within an hour for best effect."
+      ],
+      "example_input": "Notes from a product launch sync.",
+      "example_output": "Action items: | Update landing page | Priya | Fri | High | ...",
+      "popularity": 86,
+      "date_added": "2026-02-05",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "meeting-notes-to-actions"
+    },
+    {
+      "slug": "procrastination-breaker",
+      "title": "Procrastination Breaker",
+      "description": "Break a dreaded task into tiny first steps and design your environment so starting is easy.",
+      "category": "productivity-organization",
+      "tags": [
+        "procrastination",
+        "focus",
+        "habits"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "I'm procrastinating on this: [TASK]\nWhy I think I'm avoiding it: [REASON, or 'no idea']\nDeadline: [DATE]\nTime I can work today: [MINUTES]\n\nHelp me by:\n1. Asking up to 3 quick questions to diagnose the real blocker (fear, boredom, unclear next step, too big).\n2. Breaking the task into steps no longer than 10 minutes, with the very first step taking under 2 minutes.\n3. Suggesting an environment tweak and a small reward.\n4. Writing a \"starting sentence\" I can say to myself.\nBe encouraging and practical, not preachy.",
+      "instructions": [
+        "Answer the diagnostic questions honestly.",
+        "Do only the 2-minute first step, then decide whether to continue."
+      ],
+      "example_input": "Task: write my thesis introduction. Avoiding because it feels overwhelming.",
+      "example_output": "Step 1 (2 min): open the document and write one ugly sentence about why your topic matters. Step 2 ...",
+      "popularity": 83,
+      "date_added": "2026-03-12",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "procrastination-breaker"
+    },
+    {
+      "slug": "scamper-idea-generator",
+      "title": "SCAMPER Idea Generator",
+      "description": "Use the SCAMPER method to produce original variations on any product, process or idea.",
+      "category": "creativity-brainstorming",
+      "tags": [
+        "ideation",
+        "innovation",
+        "brainstorming"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Use the SCAMPER technique (Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Reverse) on this:\n\nSubject: [PRODUCT / PROCESS / PROBLEM]\nAudience: [WHO IT IS FOR]\nConstraints: [BUDGET, TIME, TECHNOLOGY]\n\nFor each of the 7 letters give 3 specific ideas (not generic). Then pick your 3 most promising ideas, explain why, and propose a cheap experiment to test each within one week.",
+      "instructions": [
+        "Use it when stuck with 'normal' ideas.",
+        "Ask for a second round focusing on your favorite letter."
+      ],
+      "example_input": "Subject: a neighborhood library. Audience: teenagers.",
+      "example_output": "Combine: a library + a gaming lounge where checking out a book unlocks gaming time ...",
+      "popularity": 75,
+      "date_added": "2026-02-12",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "scamper-idea-generator"
+    },
+    {
+      "slug": "story-starter-workshop",
+      "title": "Story Starter Workshop",
+      "description": "Build a compelling story premise with character, conflict and a surprising twist.",
+      "category": "creativity-brainstorming",
+      "tags": [
+        "fiction",
+        "storytelling",
+        "writing"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Help me develop a short story.\n\nGenre: [GENRE]\nMood: [MOOD]\nOne element I want included: [OBJECT / SETTING / THEME]\n\nGive me 3 distinct premises. For each: protagonist with a flaw and a want, the central conflict, the setting, an unexpected twist, and the opening line. After I pick one, outline it in a 5-beat structure and ask me 3 questions to deepen the character before writing anything.",
+      "instructions": [
+        "Pick a premise, then continue the conversation scene by scene.",
+        "Rewrite the opening lines in your own voice."
+      ],
+      "example_input": "Genre: sci-fi mystery. Mood: melancholic. Element: a broken lighthouse.",
+      "example_output": "Premise 1: The Lighthouse Keeper's Echo - on a terraformed moon, a keeper discovers the light is answering someone ...",
+      "popularity": 71,
+      "date_added": "2026-03-14",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "story-starter-workshop"
+    },
+    {
+      "slug": "reverse-brainstorm",
+      "title": "Reverse Brainstorming",
+      "description": "Find breakthrough solutions by first brainstorming how to make the problem worse.",
+      "category": "creativity-brainstorming",
+      "tags": [
+        "problem solving",
+        "innovation",
+        "workshop"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Run a reverse brainstorming session with me.\n\nProblem: [PROBLEM]\nContext: [TEAM / SITUATION]\n\nSteps:\n1. List 12 ways we could make this problem dramatically worse (be bold and funny).\n2. Flip each into a practical solution.\n3. Rate each solution on impact and effort (1-5) in a table.\n4. Highlight the top 3 \"quick wins\" and the one \"big bet\".\n5. Suggest what to try first on Monday morning.",
+      "instructions": [
+        "Great for teams: share the 'worse' list before revealing the flipped one."
+      ],
+      "example_input": "Problem: customers abandon our app during onboarding.",
+      "example_output": "Worse: ask for 15 form fields before showing any value. Flip: show the product first, ask for a name only after the first success ...",
+      "popularity": 66,
+      "date_added": "2026-03-18",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "reverse-brainstorm"
+    },
+    {
+      "slug": "paper-summarizer",
+      "title": "Research Paper Summarizer",
+      "description": "Turn a dense paper into a structured summary with limitations and practical takeaways.",
+      "category": "research-analysis",
+      "tags": [
+        "papers",
+        "summaries",
+        "academic"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Summarize the research paper below for a reader who is [NON-EXPERT / GRAD STUDENT / EXPERT].\n\nOutput:\n1. **One-sentence takeaway**\n2. **Research question and why it matters**\n3. **Method** (sample, design, data)\n4. **Key findings** with the numbers\n5. **Limitations** (those stated AND those you notice)\n6. **How it connects** to prior work\n7. **Practical implications**\n8. **Three questions to ask the authors**\n\nDo not add claims that are not in the text. Quote exact phrases for any statistic.\n\nPaper:\n[PASTE TEXT]",
+      "instructions": [
+        "Paste the abstract plus methods and results for best accuracy.",
+        "Verify key numbers against the original paper."
+      ],
+      "example_input": "A paper on sleep and memory consolidation.",
+      "example_output": "Takeaway: Sleeping within 3 hours of learning improved recall by 18% in adults aged 18-30 ...",
+      "popularity": 89,
+      "date_added": "2026-01-30",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "paper-summarizer"
+    },
+    {
+      "slug": "compare-options-matrix",
+      "title": "Decision Matrix Analyst",
+      "description": "Compare multiple options against weighted criteria and get a clear, reasoned recommendation.",
+      "category": "research-analysis",
+      "tags": [
+        "decision making",
+        "comparison",
+        "analysis"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Help me choose between options using a weighted decision matrix.\n\nDecision: [DECISION]\nOptions: [OPTION A, OPTION B, OPTION C]\nCriteria that matter to me: [LIST]\nConstraints that are non-negotiable: [LIST]\n\n1. Ask me to confirm or adjust criteria weights (total 100) before scoring.\n2. Score each option 1-10 per criterion with a one-line reason.\n3. Show the weighted table and totals.\n4. Run a sensitivity check: how do results change if the top-weighted criterion changes?\n5. Give a recommendation, the biggest risk of it, and what would make you change your mind.",
+      "instructions": [
+        "Be honest with the weights; they drive the result.",
+        "Treat the output as a thinking aid, not an oracle."
+      ],
+      "example_input": "Choosing a laptop: MacBook Air vs ThinkPad vs Framework.",
+      "example_output": "Proposed weights: Battery 25, Price 25, Repairability 20, Performance 20, Weight 10. Confirm?",
+      "popularity": 84,
+      "date_added": "2026-02-08",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "compare-options-matrix"
+    },
+    {
+      "slug": "argument-stress-test",
+      "title": "Argument Stress Test",
+      "description": "Find logical gaps, hidden assumptions and counterarguments in your reasoning before others do.",
+      "category": "research-analysis",
+      "tags": [
+        "critical thinking",
+        "logic",
+        "debate"
+      ],
+      "difficulty": "Advanced",
+      "prompt": "Act as a rigorous but fair critic. Stress-test my argument.\n\nMy claim: [CLAIM]\nMy supporting reasoning and evidence: [REASONING]\nAudience: [WHO I WANT TO CONVINCE]\n\nDeliver:\n1. The argument restated in its strongest form (steelman).\n2. Hidden assumptions it depends on.\n3. Logical fallacies or weak links (name them and quote the line).\n4. The three strongest counterarguments with the best evidence for each.\n5. What evidence would change my mind, and what I should gather.\n6. A revised version of my argument that survives these objections.",
+      "instructions": [
+        "Use before presentations, essays or major decisions.",
+        "Ask the AI to argue the opposing side in a mock debate afterward."
+      ],
+      "example_input": "Claim: Our school should switch to a four-day week.",
+      "example_output": "Hidden assumption: that fewer days will not reduce instructional hours below the legal minimum ...",
+      "popularity": 77,
+      "date_added": "2026-03-02",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "argument-stress-test"
+    },
+    {
+      "slug": "lean-business-validator",
+      "title": "Lean Idea Validator",
+      "description": "Stress-test a startup idea with a lean canvas, riskiest assumptions and cheap validation experiments.",
+      "category": "business-entrepreneurship",
+      "tags": [
+        "startup",
+        "validation",
+        "lean canvas"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "You are a skeptical startup advisor. Evaluate my idea.\n\nIdea: [ONE-PARAGRAPH DESCRIPTION]\nTarget customer: [WHO]\nHow I plan to make money: [MODEL]\nMy resources: [TIME, MONEY, SKILLS]\n\nDeliver:\n1. A Lean Canvas (problem, segments, UVP, solution, channels, revenue, costs, metrics, unfair advantage).\n2. The 3 riskiest assumptions, ranked.\n3. For each, an experiment I can run in under 2 weeks for under $100, with a success threshold.\n4. Likely competitors and how I might be different.\n5. An honest verdict: Pursue / Pivot / Park, with reasons.",
+      "instructions": [
+        "Be specific about the customer. 'Everyone' is not a customer.",
+        "Run the cheapest experiment first."
+      ],
+      "example_input": "A subscription box for left-handed students.",
+      "example_output": "Riskiest assumption: enough students will pay monthly. Experiment: landing page + $50 ad test, success = 3% email signup...",
+      "popularity": 87,
+      "date_added": "2026-02-16",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "lean-business-validator"
+    },
+    {
+      "slug": "customer-persona-builder",
+      "title": "Customer Persona Builder",
+      "description": "Create realistic customer personas with goals, frustrations and the words they actually use.",
+      "category": "business-entrepreneurship",
+      "tags": [
+        "customers",
+        "personas",
+        "market research"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Create 3 detailed customer personas for my product.\n\nProduct: [PRODUCT]\nProblem it solves: [PROBLEM]\nKnown data about customers: [ANY DATA, or 'none']\n\nFor each persona give: name and role, demographics, goals, frustrations, how they currently solve the problem, where they look for solutions, objections to buying, a quote in their own words, and the best message to reach them in one sentence. Mark everything that is an assumption with (assumed) and suggest how I can verify it with 5 interview questions.",
+      "instructions": [
+        "Treat personas as hypotheses and validate them with real interviews."
+      ],
+      "example_input": "Product: a budgeting app for freelancers.",
+      "example_output": "Persona 1: Maya, 29, freelance illustrator. Frustration: irregular income makes monthly budgets useless (assumed)...",
+      "popularity": 73,
+      "date_added": "2026-03-06",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "customer-persona-builder"
+    },
+    {
+      "slug": "product-requirements-doc",
+      "title": "One-Page PRD Writer",
+      "description": "Draft a tight product requirements document with goals, user stories and success metrics.",
+      "category": "business-entrepreneurship",
+      "tags": [
+        "product management",
+        "planning",
+        "specs"
+      ],
+      "difficulty": "Advanced",
+      "prompt": "Write a one-page Product Requirements Document.\n\nFeature: [FEATURE]\nProblem and evidence: [WHY WE NEED IT]\nUsers: [WHO]\nConstraints: [TECH, TIME, LEGAL]\n\nSections: Problem statement, Goals and non-goals, User stories (with acceptance criteria), Requirements (must / should / could), Success metrics (leading and lagging), Risks and dependencies, Open questions, Rollout plan. Be specific and measurable. Flag any requirement that is untestable.",
+      "instructions": [
+        "Share the draft with engineering early and iterate."
+      ],
+      "example_input": "Feature: saved searches with email alerts.",
+      "example_output": "Goal: increase weekly returning users by 10% within 8 weeks. Non-goal: mobile push alerts in v1 ...",
+      "popularity": 68,
+      "date_added": "2026-03-15",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "product-requirements-doc"
+    },
+    {
+      "slug": "explain-like-expert-levels",
+      "title": "Explain at Three Levels",
+      "description": "Understand any scientific or technical idea at beginner, intermediate and expert depth.",
+      "category": "science-technology",
+      "tags": [
+        "explanations",
+        "science",
+        "learning"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Explain [CONCEPT] at three levels.\n\nLevel 1: for a curious 10-year-old (an analogy, no jargon).\nLevel 2: for a college student (key terms defined, main mechanism).\nLevel 3: for a practitioner (mathematics or technical detail, edge cases, common misconceptions, current open questions).\n\nAfter each level add one \"check yourself\" question. End with 3 reliable sources I can read to go deeper (title and author only; do not invent links).",
+      "instructions": [
+        "Start at Level 1 even if you think you know the topic."
+      ],
+      "example_input": "Concept: CRISPR gene editing.",
+      "example_output": "Level 1: Imagine DNA is a huge instruction book and CRISPR is a find-and-replace tool with a guide that finds one exact sentence ...",
+      "popularity": 94,
+      "date_added": "2026-01-18",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "explain-like-expert-levels"
+    },
+    {
+      "slug": "tech-explainer-for-decisions",
+      "title": "Emerging Tech Briefing",
+      "description": "Get a balanced briefing on a new technology: how it works, real use cases, hype versus reality.",
+      "category": "science-technology",
+      "tags": [
+        "emerging tech",
+        "analysis",
+        "briefing"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Prepare a briefing on [TECHNOLOGY] for [AUDIENCE, e.g. a non-technical manager].\n\nInclude: plain-English definition; how it works in 5 sentences; 3 proven real-world uses; 3 overhyped claims and the reality; maturity level (research / early / mainstream); costs and risks; questions I should ask a vendor; and what to watch over the next 12 months. Clearly separate facts from your opinion, and tell me where your knowledge may be outdated so I can verify.",
+      "instructions": [
+        "Verify time-sensitive claims with current sources."
+      ],
+      "example_input": "Technology: edge AI. Audience: a hospital IT manager.",
+      "example_output": "Overhyped: 'edge AI replaces cloud entirely.' Reality: most deployments split work between device and cloud ...",
+      "popularity": 72,
+      "date_added": "2026-03-08",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "tech-explainer-for-decisions"
+    },
+    {
+      "slug": "science-experiment-designer",
+      "title": "Experiment Designer",
+      "description": "Design a clear, testable experiment with hypothesis, variables, controls and analysis plan.",
+      "category": "science-technology",
+      "tags": [
+        "experiments",
+        "methodology",
+        "STEM"
+      ],
+      "difficulty": "Advanced",
+      "prompt": "Help me design an experiment.\n\nQuestion I want to answer: [QUESTION]\nResources and constraints: [EQUIPMENT, TIME, ETHICS, SAMPLE SIZE]\nLevel: [school project / undergraduate / professional]\n\nProvide: a falsifiable hypothesis (and the null), independent, dependent and controlled variables, the control group, step-by-step procedure, sample size reasoning, likely confounders and how to handle them, what data to record, which statistical test to use and why, and how to interpret both positive and negative results. Point out ethical or safety concerns.",
+      "instructions": [
+        "Have a teacher or mentor review the plan before running it."
+      ],
+      "example_input": "Does background music affect reading comprehension in teenagers?",
+      "example_output": "H0: There is no difference in comprehension scores between music and silence conditions. H1: ... Use a paired t-test ...",
+      "popularity": 65,
+      "date_added": "2026-03-20",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "science-experiment-designer"
+    },
+    {
+      "slug": "habit-designer",
+      "title": "Tiny Habit Designer",
+      "description": "Design a habit you will actually keep using small steps, cues and a realistic tracking plan.",
+      "category": "personal-development",
+      "tags": [
+        "habits",
+        "routine",
+        "self-improvement"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Help me build this habit: [HABIT]\nWhy it matters to me: [REASON]\nMy daily routine: [BRIEF ROUTINE]\nPast attempts and why they failed: [NOTES]\n\nDesign it using Tiny Habits principles:\n1. A 30-second version of the habit.\n2. A reliable trigger anchored to something I already do.\n3. A plan for bad days (a minimum version).\n4. A way to celebrate immediately.\n5. A 4-week progression plan.\n6. Three likely obstacles with if-then plans.\nKeep it supportive and avoid unrealistic goals.",
+      "instructions": [
+        "Start with the tiny version even if it feels silly."
+      ],
+      "example_input": "Habit: read daily. Routine: wake 7am, coffee, commute.",
+      "example_output": "Anchor: After I pour my coffee, I will read one page. Bad-day version: open the book and read one sentence ...",
+      "popularity": 90,
+      "date_added": "2026-02-02",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "habit-designer"
+    },
+    {
+      "slug": "weekly-reflection-journal",
+      "title": "Guided Weekly Reflection",
+      "description": "A coach-style reflection that helps you learn from your week and set an intention for the next.",
+      "category": "personal-development",
+      "tags": [
+        "reflection",
+        "journaling",
+        "mindfulness"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Be my reflection coach. Ask me ONE question at a time and wait for my answers.\n\nCover, in order: wins and what made them possible; what drained energy; a moment I am proud of; a lesson learned; something I avoided; relationships I want to invest in; one intention for next week.\n\nAfter my answers, summarize patterns you notice (without diagnosing), and suggest one small experiment for the next week. Keep a warm, non-judgmental tone.",
+      "instructions": [
+        "Set aside 15 minutes; answer in full sentences for best results."
+      ],
+      "example_input": "(Start the chat; no input needed.)",
+      "example_output": "Let's begin. What was one win from this week, big or small, and what helped it happen?",
+      "popularity": 79,
+      "date_added": "2026-02-25",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "weekly-reflection-journal"
+    },
+    {
+      "slug": "decision-regret-minimizer",
+      "title": "Big Decision Clarifier",
+      "description": "Think through a life decision using values, scenarios and a regret test rather than just pros and cons.",
+      "category": "personal-development",
+      "tags": [
+        "decisions",
+        "values",
+        "life choices"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "I'm facing a significant decision: [DECISION]\nOptions: [OPTIONS]\nThings I value most: [VALUES]\nMy fears: [FEARS]\n\nGuide me through:\n1. Questions to clarify what I really want (ask 5, one at a time).\n2. Best-case, worst-case and most-likely scenarios per option.\n3. The 10-10-10 test (10 minutes, 10 months, 10 years).\n4. Which option fits my stated values, and where I seem to contradict myself.\n5. Small reversible experiments to reduce uncertainty.\nYou are a thinking partner; do not make the decision for me.",
+      "instructions": [
+        "Take your time and answer honestly. Revisit after a day."
+      ],
+      "example_input": "Decision: move cities for a new job or stay near family.",
+      "example_output": "Question 1: If both options paid exactly the same, which would you choose in the first five seconds?",
+      "popularity": 70,
+      "date_added": "2026-03-11",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "decision-regret-minimizer"
+    },
+    {
+      "slug": "value-proposition-copy",
+      "title": "Value Proposition & Headline Lab",
+      "description": "Craft a sharp value proposition and test multiple headline angles for a landing page.",
+      "category": "design-marketing",
+      "tags": [
+        "copywriting",
+        "landing page",
+        "positioning"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "You are a conversion copywriter.\n\nProduct: [PRODUCT]\nCustomer: [WHO]\nTheir main problem: [PROBLEM]\nKey differentiator: [WHAT'S DIFFERENT]\nTone: [e.g. confident, friendly, minimal]\n\nWrite:\n1. A value proposition using: For [customer] who [problem], [product] is a [category] that [benefit]. Unlike [alternative], it [difference].\n2. 10 headlines across 5 angles (benefit, curiosity, social proof, specificity, objection-handling), 2 each.\n3. A subheadline for the best three.\n4. A call-to-action with 5 variants.\n5. An explanation of which to A/B test first and why. Avoid clichés like \"revolutionize\" and \"game-changing\".",
+      "instructions": [
+        "Include real differentiators; the AI can't invent genuine ones."
+      ],
+      "example_input": "Product: a meal-prep app for busy nurses.",
+      "example_output": "Headline (specificity): 'Dinner planned in 4 minutes between shifts.' ...",
+      "popularity": 85,
+      "date_added": "2026-02-09",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "value-proposition-copy"
+    },
+    {
+      "slug": "ux-design-critique",
+      "title": "UX Design Critique",
+      "description": "Get a structured critique of a design or screen using usability heuristics and accessibility checks.",
+      "category": "design-marketing",
+      "tags": [
+        "UX",
+        "usability",
+        "accessibility"
+      ],
+      "difficulty": "Advanced",
+      "prompt": "Act as a senior UX designer. Critique the design I describe or attach.\n\nProduct and goal of the screen: [GOAL]\nUsers: [WHO]\nDescription or screenshot: [DETAILS]\n\nEvaluate against Nielsen's 10 heuristics, visual hierarchy, spacing and typography, colour contrast (WCAG AA), mobile responsiveness, and accessibility (keyboard, screen reader, touch targets). Output a prioritized table: Issue | Severity (high / medium / low) | Why it matters | Concrete fix. Then suggest 3 quick A/B tests. Be specific; avoid vague praise.",
+      "instructions": [
+        "If your AI tool supports images, attach a screenshot."
+      ],
+      "example_input": "A mobile checkout screen with a small grey 'Pay' button.",
+      "example_output": "High: 'Pay' button contrast ratio is 2.1:1, below WCAG AA 4.5:1. Fix: use a darker fill and 48px minimum height ...",
+      "popularity": 76,
+      "date_added": "2026-03-03",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "ux-design-critique"
+    },
+    {
+      "slug": "content-calendar-builder",
+      "title": "30-Day Content Calendar",
+      "description": "Plan a month of consistent, varied social content tied to a clear goal.",
+      "category": "design-marketing",
+      "tags": [
+        "social media",
+        "content",
+        "planning"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "Create a 30-day content calendar.\n\nBrand / account: [NAME AND WHAT IT DOES]\nAudience: [WHO]\nPlatforms: [PLATFORMS]\nGoal: [e.g. grow newsletter, drive sales]\nPosts per week: [NUMBER]\nBrand voice: [DESCRIPTION]\n\nProvide a table: Day | Platform | Format | Topic | Hook (first line) | Call to action. Balance education, entertainment, proof and promotion (roughly 40/20/20/20). Include 4 recurring series ideas and 5 ways to repurpose each high-performing post.",
+      "instructions": [
+        "Batch-create content weekly instead of daily."
+      ],
+      "example_input": "Account: a local bakery on Instagram, goal: more weekday foot traffic.",
+      "example_output": "Day 3 | Instagram Reel | Behind the scenes | 'Why we start baking at 3 a.m.' | CTA: Come by before 9 for a free coffee ...",
+      "popularity": 81,
+      "date_added": "2026-02-27",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "content-calendar-builder"
+    },
+    {
+      "slug": "prompt-improver",
+      "title": "Prompt Improver",
+      "description": "Paste a weak prompt and get a clearer, more effective version plus an explanation of what changed.",
+      "category": "general-purpose",
+      "tags": [
+        "prompt engineering",
+        "meta",
+        "improvement"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "You are an expert prompt engineer. Improve my prompt.\n\nPrompt: [PASTE PROMPT]\nWhat I actually want: [GOAL]\nAI tool I'll use: [CHATGPT / CLAUDE / GEMINI / OTHER]\n\n1. Ask up to 3 clarifying questions if essential information is missing.\n2. Provide the improved prompt in a code block, adding role, context, task, format and constraints as needed.\n3. Explain each change in one line so I learn the pattern.\n4. Offer a shorter version for quick use.",
+      "instructions": [
+        "Run both the old and new prompt and compare results."
+      ],
+      "example_input": "Prompt: 'write about dogs'.",
+      "example_output": "Improved: 'Write a 300-word blog intro about adopting a rescue dog, for first-time owners, in a warm tone...' ...",
+      "popularity": 98,
+      "date_added": "2026-01-12",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "prompt-improver"
+    },
+    {
+      "slug": "expert-panel-discussion",
+      "title": "Expert Panel Discussion",
+      "description": "Get a topic examined by several expert perspectives that debate and then converge on a recommendation.",
+      "category": "general-purpose",
+      "tags": [
+        "perspectives",
+        "analysis",
+        "roleplay"
+      ],
+      "difficulty": "Intermediate",
+      "prompt": "Simulate a panel of 4 experts discussing: [QUESTION OR PROBLEM]\n\nChoose experts with genuinely different viewpoints (for example an economist, an engineer, an ethicist and a practitioner) and name each by role. Run three rounds:\n1. Opening positions (3 sentences each).\n2. Cross-examination: each expert challenges one claim by another.\n3. Consensus: the points they agree on, the points they don't, and a final recommendation with caveats.\nBe honest about uncertainty and avoid stereotyping. End by listing what I should verify independently.",
+      "instructions": [
+        "Change the experts to fit your problem."
+      ],
+      "example_input": "Question: Should our town replace bus routes with on-demand shuttles?",
+      "example_output": "Economist: On-demand shuttles reduce empty-bus costs but raise per-ride subsidies ... Ethicist: Equity of access for elderly riders ...",
+      "popularity": 83,
+      "date_added": "2026-02-20",
+      "featured": false,
+      "author": "PromptVault Team",
+      "id": "expert-panel-discussion"
+    },
+    {
+      "slug": "clarify-before-answering",
+      "title": "Ask-Me-First Assistant",
+      "description": "Make the AI interview you first so its final answer fits your real situation instead of guessing.",
+      "category": "general-purpose",
+      "tags": [
+        "clarification",
+        "quality",
+        "workflow"
+      ],
+      "difficulty": "Beginner",
+      "prompt": "I need help with: [TASK]\n\nBefore you answer, ask me the 5 most important clarifying questions (numbered, short). Do not start the task yet. After I answer, state your understanding in 2 sentences, confirm any assumptions you are making, and then complete the task. If my answers reveal a better approach than the one I asked for, tell me.",
+      "instructions": [
+        "Reply to the numbered questions in one message.",
+        "Use for any complex task where context matters."
+      ],
+      "example_input": "Task: Plan a 3-day trip to Istanbul.",
+      "example_output": "1. What is your total budget? 2. Who is travelling? 3. Interests (history, food, nightlife)? 4. Mobility limits? 5. Hotel area preference?",
+      "popularity": 95,
+      "date_added": "2026-01-25",
+      "featured": true,
+      "author": "PromptVault Team",
+      "id": "clarify-before-answering"
+    }
+  ]
+}

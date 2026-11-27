@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+
+{% block content %}
+<section class="page-head" style="--cat: {{ cat.color }}">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ url_for('main.categories') }}">Categories</a><span aria-hidden="true">&gt;</span><span>{{ cat.name }}</span></nav>
+    <h1><span class="head-tab" aria-hidden="true"></span>{{ cat.name }}</h1>
+    <p class="lead">{{ cat.description }}</p>
+    <p><a class="text-link" href="{{ url_for('main.explore', category=cat.slug) }}">Search and filter within this category</a></p>
+  </div>
+</section>
+<section class="container section-tight">
+  <div class="grid">{% for p in prompts %}{{ card(p) }}{% endfor %}</div>
+</section>
+{% endblock %}

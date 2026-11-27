@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <h1>Your favorites</h1>
+    <p class="lead">Prompts you save are stored in this browser only. There are no accounts, and nothing is sent to a server.</p>
+  </div>
+</section>
+<section class="container section-tight">
+  {# Every card is rendered hidden; app.js reveals the ones saved in localStorage. #}
+  <div id="fav-grid" class="grid">
+    {% for p in prompts %}{{ card(p, hidden=True) }}{% endfor %}
+  </div>
+  <div id="fav-empty" class="empty" hidden>
+    <h2>You have not saved any prompts yet</h2>
+    <p>Use the heart on any prompt card to keep it here. <a href="{{ url_for('main.explore') }}">Find prompts to save</a>.</p>
+  </div>
+</section>
+{% endblock %}

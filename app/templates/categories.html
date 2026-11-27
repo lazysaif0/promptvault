@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <h1>Categories</h1>
+    <p class="lead">Twelve areas, from studying and coding to career moves and creative work. Pick one to see every prompt in it.</p>
+  </div>
+</section>
+<section class="container section-tight">
+  <div class="cat-list">
+    {% for c in categories %}
+    <a class="cat-row" href="{{ url_for('main.category', slug=c.slug) }}" style="--cat: {{ c.color }}">
+      <span class="cat-row-name">{{ c.name }}</span>
+      <span class="cat-row-desc">{{ c.description }}</span>
+      <span class="cat-row-count">{{ c.count }} prompts</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

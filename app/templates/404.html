@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <h1>{{ message or "That page does not exist" }}</h1>
+    <p class="lead">The link may be old or mistyped. Search the library or head back to the start.</p>
+    <p class="row"><a class="btn" href="{{ url_for('main.explore') }}">Explore prompts</a><a class="btn btn-ghost" href="{{ url_for('main.home') }}">Go home</a></p>
+  </div>
+</section>
+{% endblock %}

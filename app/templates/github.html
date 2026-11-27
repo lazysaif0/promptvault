@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <h1>Contribute on GitHub</h1>
+    <p class="lead">The whole library is one file, <code>data/prompts.json</code>. Adding a prompt means adding one entry to it and opening a pull request.</p>
+    <p class="row"><a class="btn" href="{{ github_url }}" target="_blank" rel="noopener">Open the repository</a><a class="btn btn-ghost" href="{{ github_url }}/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Read CONTRIBUTING.md</a></p>
+  </div>
+</section>
+
+<section class="container prose-wrap">
+  <ol class="steps big">
+    <li><h2>Fork the repository</h2><p>On GitHub, click <strong>Fork</strong> on the repository page. This makes your own copy under your account.</p></li>
+    <li><h2>Clone your fork</h2>
+<pre class="code"><code>git clone https://github.com/YOUR-USERNAME/promptvault.git
+cd promptvault
+git checkout -b add-my-prompt</code></pre></li>
+    <li><h2>Add your prompt</h2><p>Open <code>data/prompts.json</code> and add an entry to the end of the <code>"prompts"</code> list. Remember the comma between entries.</p>
+<pre class="code"><code>{
+  "slug": "my-prompt-title",
+  "title": "My Prompt Title",
+  "description": "One or two sentences on what it does.",
+  "category": "writing-communication",
+  "tags": ["email", "tone"],
+  "difficulty": "Beginner",
+  "prompt": "Full prompt text with [PLACEHOLDERS] for the parts to change.",
+  "instructions": ["Replace the bracketed fields."],
+  "example_input": "A short example of what you would type.",
+  "example_output": "An abridged example of the result.",
+  "popularity": 0,
+  "date_added": "2026-01-31",
+  "featured": false,
+  "author": "your-github-username"
+}</code></pre>
+      <p>Valid categories: {% for c in all_categories %}<code>{{ c.slug }}</code>{% if not loop.last %}, {% endif %}{% endfor %}.</p></li>
+    <li><h2>Check it</h2><p>The validator catches typos, missing fields and duplicate slugs. Then run the site and look at your prompt.</p>
+<pre class="code"><code>python tools/validate_prompts.py
+python run.py</code></pre></li>
+    <li><h2>Commit and push</h2>
+<pre class="code"><code>git add data/prompts.json
+git commit -m "Add prompt: My Prompt Title"
+git push origin add-my-prompt</code></pre></li>
+    <li><h2>Open a pull request</h2><p>On your fork, click <strong>Compare &amp; pull request</strong>, describe what the prompt does and how you tested it, then submit. A maintainer will review it and may ask for changes.</p></li>
+  </ol>
+  <p class="fine">Not comfortable with Git? Use the <a href="{{ url_for('main.contribute') }}">submission form</a> instead.</p>
+</section>
+{% endblock %}

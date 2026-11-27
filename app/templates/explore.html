@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <h1>Explore prompts</h1>
+    <p class="lead">Search titles, descriptions, tags and the prompt text itself. Results update as you type.</p>
+  </div>
+</section>
+
+<section class="container explore">
+  {# Works without JavaScript (normal GET form) and is upgraded by app.js for instant filtering. #}
+  <form id="explore-form" class="filters win-lite" action="{{ url_for('main.explore') }}" method="get" role="search">
+    <div class="field field-search">
+      <label for="f-q">Search</label>
+      <input id="f-q" name="q" type="search" value="{{ q }}" placeholder="e.g. interview, habit" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="f-category">Category</label>
+      <select id="f-category" name="category">
+        <option value="">All categories</option>
+        {% for c in all_categories %}<option value="{{ c.slug }}" {% if c.slug == category %}selected{% endif %}>{{ c.name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-difficulty">Difficulty</label>
+      <select id="f-difficulty" name="difficulty">
+        <option value="">Any difficulty</option>
+        {% for d in difficulties %}<option value="{{ d }}" {% if d == difficulty %}selected{% endif %}>{{ d }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-sort">Sort by</label>
+      <select id="f-sort" name="sort">
+        {% if q %}<option value="relevance" {% if sort == 'relevance' %}selected{% endif %}>Best match</option>{% endif %}
+        {% for key, label in sort_options.items() %}<option value="{{ key }}" {% if key == sort %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+    </div>
+    <noscript><button class="btn" type="submit">Apply</button></noscript>
+  </form>
+
+  <div class="result-bar">
+    <p id="result-count" aria-live="polite"><strong>{{ matched }}</strong> {{ 'prompt' if matched == 1 else 'prompts' }}</p>
+    <button type="button" id="clear-filters" class="text-link" hidden>Clear filters</button>
+  </div>
+
+  <div id="results" class="grid">
+    {% for p, ok in results %}{{ card(p, hidden=not ok) }}{% endfor %}
+  </div>
+
+  <div id="empty" class="empty" {% if matched %}hidden{% endif %}>
+    <h2>No prompts match those filters</h2>
+    <p>Try fewer words, a different category, or clear the filters. If the prompt you need does not exist yet, <a href="{{ url_for('main.contribute') }}">write it and share it</a>.</p>
+  </div>
+</section>
+{% endblock %}

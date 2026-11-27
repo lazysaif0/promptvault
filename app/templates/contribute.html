@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <h1>Contribute a prompt</h1>
+    <p class="lead">Fill in the form and PromptVault builds a ready-to-send entry for you. Nothing is uploaded. Everything happens in your browser, so it works the same on GitHub Pages.</p>
+  </div>
+</section>
+
+<section class="container contribute">
+  <div class="contrib-main">
+    <noscript><div class="notice notice-error"><h2>JavaScript is off</h2><p>The form needs JavaScript. You can still <a href="{{ url_for('main.github_page') }}">add a prompt with a pull request</a>.</p></div></noscript>
+
+    <div id="form-errors" class="notice notice-error" role="alert" tabindex="-1" hidden>
+      <h2>Fix these first</h2>
+      <ul></ul>
+    </div>
+
+    {# data-slugs lets the page warn about duplicate titles without a server. #}
+    <form id="contribute-form" class="form" novalidate
+          data-slugs='{{ slugs | tojson | forceescape }}'
+          data-repo="{{ github_repo }}" data-repo-url="{{ github_url }}">
+      <div class="field">
+        <label for="c-title">Title</label>
+        <input id="c-title" name="title" maxlength="80" required placeholder="Interview Question Generator">
+      </div>
+      <div class="field">
+        <label for="c-desc">Short description</label>
+        <input id="c-desc" name="description" maxlength="240" required placeholder="One or two sentences on what the prompt does and who it helps.">
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="c-cat">Category</label>
+          <select id="c-cat" name="category" required>
+            <option value="">Choose a category</option>
+            {% for c in all_categories %}<option value="{{ c.slug }}">{{ c.name }}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label for="c-diff">Difficulty</label>
+          <select id="c-diff" name="difficulty" required>
+            <option value="">Choose a level</option>
+            {% for d in difficulties %}<option value="{{ d }}">{{ d }}</option>{% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-tags">Tags</label>
+        <input id="c-tags" name="tags" placeholder="interview, practice, feedback (comma separated, up to 6)">
+      </div>
+      <div class="field">
+        <label for="c-prompt">The prompt</label>
+        <textarea id="c-prompt" name="prompt" rows="10" maxlength="4000" required placeholder="Write the full prompt. Put the parts users must change in [SQUARE BRACKETS], for example [TOPIC]. They become fill-in fields on the site."></textarea>
+      </div>
+      <div class="field">
+        <label for="c-inst">Usage tips <span class="opt">optional, one per line</span></label>
+        <textarea id="c-inst" name="instructions" rows="3" maxlength="800" placeholder="Replace the bracketed fields.&#10;Answer the AI's questions one at a time."></textarea>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="c-in">Example input <span class="opt">optional</span></label>
+          <textarea id="c-in" name="example_input" rows="3" maxlength="600"></textarea>
+        </div>
+        <div class="field">
+          <label for="c-out">Example output <span class="opt">optional</span></label>
+          <textarea id="c-out" name="example_output" rows="3" maxlength="1200"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-author">Credit name <span class="opt">optional</span></label>
+        <input id="c-author" name="author" maxlength="60" placeholder="Your name or GitHub username">
+      </div>
+      <label class="check">
+        <input type="checkbox" name="agree" value="1">
+        <span>This prompt is my own work or properly attributed, and I tested it with an AI assistant.</span>
+      </label>
+      <div><button class="btn btn-large" type="submit">Create my entry</button></div>
+    </form>
+
+    {# Shown after the form is valid. Filled in by app.js. #}
+    <div id="contrib-result" class="win" hidden>
+      <div class="win-bar"><span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span><h2 class="win-title">your-entry.json</h2></div>
+      <div class="win-body">
+        <p class="result-lead">Your entry is ready. Choose how to send it:</p>
+        <ol class="steps">
+          <li><strong>Easiest:</strong> open a GitHub issue. Your prompt is pre-filled and a maintainer will add it.</li>
+          <li><strong>Pull request:</strong> copy the JSON, open <code>prompts.json</code> on GitHub, paste it at the end of the <code>"prompts"</code> list (add a comma before it), and commit. GitHub will offer to open a pull request.</li>
+          <li><strong>Keep a file:</strong> download the JSON and share it however you like.</li>
+        </ol>
+        <pre id="result-json" class="code" tabindex="0"></pre>
+        <div class="row result-actions">
+          <a id="btn-issue" class="btn" href="#" target="_blank" rel="noopener">Open GitHub issue</a>
+          <a id="btn-edit" class="btn btn-ghost" href="#" target="_blank" rel="noopener">Edit prompts.json on GitHub</a>
+          <button id="btn-copy-json" class="btn btn-ghost" type="button">Copy JSON</button>
+          <button id="btn-download" class="btn btn-ghost" type="button">Download JSON</button>
+          <button id="btn-again" class="btn btn-ghost" type="button">Start over</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="contrib-side win-lite">
+    <h2>Guidelines</h2>
+    <ul class="guide">
+      <li><strong>Original or attributed.</strong> Write it yourself, or credit the author and check that you may share it.</li>
+      <li><strong>Clear purpose.</strong> Someone should know what the prompt is for after reading the title and description.</li>
+      <li><strong>Tested.</strong> Run it with at least one AI assistant and make sure the result is useful.</li>
+      <li><strong>Well organized.</strong> Pick the closest category, add 3 to 6 specific tags and set an honest difficulty.</li>
+      <li><strong>Reusable.</strong> Put the parts that change in [BRACKETS] so anyone can adapt it.</li>
+      <li><strong>Safe.</strong> No personal data, no requests meant to cause harm or deceive people.</li>
+    </ul>
+    <p>Comfortable with Git? <a href="{{ url_for('main.github_page') }}">Send a pull request instead</a>.</p>
+  </aside>
+</section>
+{% endblock %}

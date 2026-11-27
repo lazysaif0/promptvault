@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card, level, heart_btn %}
+
+{% block content %}
+<article class="detail" style="--cat: {{ p.category_info.color }}"
+         data-slug="{{ p.slug }}" data-prompt="{{ p.prompt }}">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ url_for('main.explore') }}">Explore</a><span aria-hidden="true">&gt;</span>
+      <a href="{{ url_for('main.category', slug=p.category) }}">{{ p.category_info.name }}</a>
+    </nav>
+
+    <header class="detail-head">
+      <h1>{{ p.title }}</h1>
+      <p class="lead">{{ p.description }}</p>
+      <div class="meta">
+        {{ level(p.difficulty) }}
+        <span class="meta-sep" aria-hidden="true"></span>
+        <span>Added {{ p.date_added }}</span>
+        <span class="meta-sep" aria-hidden="true"></span>
+        <span>By {{ p.author }}</span>
+      </div>
+      <ul class="tags">{% for t in p.tags %}<li><a href="{{ url_for('main.explore', q=t) }}">{{ t }}</a></li>{% endfor %}</ul>
+    </header>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <section class="prompt-box win" aria-labelledby="h-prompt">
+          <div class="win-bar">
+            <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h2 id="h-prompt" class="win-title">the-prompt.txt</h2>
+          </div>
+          <div class="win-body">
+            <div class="row prompt-actions">
+              <button class="btn" type="button" data-copy-fill="#prompt-fill">Copy prompt</button>
+              <button class="btn btn-ghost fav-text" type="button" data-fav="{{ p.slug }}" aria-pressed="false">Save</button>
+            </div>
+            <div id="prompt-fill" class="fill fill-large">
+              <pre>{{ p.prompt }}</pre>
+            </div>
+            <p class="fill-hint" id="fill-hint" hidden>Fill the yellow blanks, then copy. Empty blanks stay as they are.</p>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>How to use it</h2>
+          <ol class="steps">
+            <li>Paste the prompt into your AI assistant of choice.</li>
+            {% for s in p.instructions %}<li>{{ s }}</li>{% endfor %}
+          </ol>
+        </section>
+
+        <section class="block">
+          <h2>Example</h2>
+          <div class="example">
+            <div class="example-col win-lite">
+              <h3>Input</h3>
+              <p>{{ p.example_input }}</p>
+            </div>
+            <div class="example-col win-lite">
+              <h3>Output (abridged)</h3>
+              <p>{{ p.example_output }}</p>
+            </div>
+          </div>
+          <p class="fine">Outputs vary between AI models and runs. This only shows the style of result.</p>
+        </section>
+      </div>
+
+      <aside class="detail-side" aria-labelledby="h-related">
+        <h2 id="h-related">Related prompts</h2>
+        {% for r in related %}
+        <a class="mini win-lite" href="{{ url_for('main.prompt_detail', slug=r.slug) }}" style="--cat: {{ r.category_info.color }}">
+          <span class="mini-cat">{{ r.category_info.name }}</span>
+          <span class="mini-title">{{ r.title }}</span>
+          <span class="mini-desc">{{ r.description }}</span>
+        </a>
+        {% endfor %}
+      </aside>
+    </div>
+  </div>
+</article>
+{% endblock %}
